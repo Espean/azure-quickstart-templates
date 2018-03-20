@@ -9,7 +9,7 @@
       }
     },
     "gwpublicIPAddressName": {
-      "type": "string",
+      "type": "string","2017-03-30"
       "metadata": {
         "description": "The name of gateway PublicIPAddress object"
       },
@@ -92,6 +92,7 @@
     "deployPrimaryAd": "DeployPrimaryAd",
     "deployPrimaryAdID": "[concat('Microsoft.Resources/deployments/', variables('deployPrimaryAd'))]",
     "adPDCVMName": "advm",
+	 "osdiskName": "[('advm'),'-osdisk')]",
     "vnetwithDNSTemplateURL": "[concat(variables('adAssetLocation'),'/vnet-with-dns-server.json')]",
     "updateVNetDNS1": "updateVNetDNS",
     "updateVNetDNS1ID": "[concat('Microsoft.Resources/deployments/', variables('updateVNetDNS1'))]",
@@ -630,7 +631,7 @@
             "version": "latest"
           },
           "osDisk": {
-            "name": "osdisk",
+            "name": "[variables('osdiskName')]",
             "caching": "ReadWrite",
             "createOption": "FromImage"
           }
